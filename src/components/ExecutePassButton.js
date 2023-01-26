@@ -1,14 +1,25 @@
 import React from 'react';
 import Card from './Card';
+import { useGameContext } from '../context/GameContext';
 
-export default function ExecutePassButton({
-  passCard,
-  setFrom,
-  from,
-  to,
-  selectedCard,
-  setSelectedCard,
-}) {
+export default function ExecutePassButton(passCard) {
+  const {
+    deck,
+    setDeck,
+    playerOneHand,
+    setPlayerOneHand,
+    selectedCard,
+    setSelectedCard,
+    playerTwoHand,
+    setPlayerTwoHand,
+    playerThreeHand,
+    setPlayerThreeHand,
+    from,
+    setFrom,
+    to,
+    setTo,
+  } = useGameContext();
+
   return (
     <div className="execute-button" onClick={() => passCard(selectedCard)}>
       Pass <Card card={selectedCard} setSelectedCard={setSelectedCard} setFrom={setFrom} /> from{' '}

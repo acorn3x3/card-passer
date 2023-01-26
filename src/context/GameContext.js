@@ -1,5 +1,6 @@
+import { useContext } from 'react';
 import { createContext, useState } from 'react';
-import initialCards from './cards-data';
+import initialCards from '../cards-data';
 
 const GameContext = createContext();
 const GameProvider = ({ children }) => {
@@ -34,4 +35,8 @@ const GameProvider = ({ children }) => {
     </GameContext.Provider>
   );
 };
-export { GameProvider };
+const useGameContext = () => {
+  const context = useContext(GameContext);
+  return context;
+};
+export { useGameContext, GameProvider };
